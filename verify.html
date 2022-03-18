@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verification</title>
+    <style>
+        body{
+            justify-content: center;
+            padding: 50px;
+        }
+        button{
+            margin: 0;
+            background: #2691d9;
+            border-radius: 25px;
+            width: 20%;
+        }
+    </style>
+</head>
+<body bgcolor="pink">
+    <div>
+            <form action="reg.html" onsubmit="return validation()">
+                <div class="form-group">
+                    <label> Password :</label>
+                    <input type="text" name="pass" class="form-control" id="pass" autocomplete="off">
+                    <span id="passwords" class="text-danger font-weight"></span>
+                </div><br>
+                <div class="form-group">
+                    <label> confirm Password:</label>
+                    <input type="text" name="conpass" class="form-control" id="conpass" autocomplete="off">
+                    <span id="cnfpass" class="text-danger font-weight"></span>
+                </div><br>
+            <button>Submit</button>
+        </form>
+    </div>
+    <script type="text/javascript">
+        function validation(){
+            var pass =document.getElementById('pass').value;
+            var confirmpass =document.getElementById('conpass').value;
+
+            if(pass==""){
+                document.getElementById('passwords').innerHTML="please fill the password field";
+                return false;
+            }
+            if(pass.length<8){
+                document.getElementById('passwords').innerHTML="password must be of atleast 8 Characters";
+                return false;
+            }
+            if(confirmpass==""){
+                document.getElementById('cnfpass').innerHTML="please fill the confirm Password field";
+                return false;
+            }
+            if(pass!=confirmpass){
+                document.getElementById('cnfpass').innerHTML="passwords doesn't match ";
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

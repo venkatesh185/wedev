@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+     <title>Document</title>
+</head>
+<body>
+    <div class="container"><br>
+        <h1 class="text-success text-center">Registration Page</h1><br>
+        <div class="col-lg-8 m-auto d-block">
+            <form action="reg.html" onsubmit="return validation()"class="bg-light"  bgcolor="red">
+                <div class="form-group">
+                    <label> UserName: </label>
+                    <input type="text" name="user" class="form-control" id="user" autocomplete="off">
+                    <span id="username" class="text-danger font-weight"></span>
+                </div>
+                <div class="form-group">
+                    <label> Password :</label>
+                    <input type="password" name="pass" class="form-control" id="pass" autocomplete="off">
+                    <span id="passwords" class="text-danger font-weight"></span>
+                </div>
+                <div class="form-group">
+                    <label> confirm Password:</label>
+                    <input type="password" name="conpass" class="form-control" id="conpass" autocomplete="off">
+                    <span id="cnfpass" class="text-danger font-weight"></span>
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number: </label>
+                    <input type="text" name="mobile" class="form-control" id="mobileNumber" autocomplete="off">
+                    <span id="mobileno" class="text-danger font-weight"></span>
+                </div>
+                <div class="form-group">
+                    <label>Email: </label>
+                    <input type="text" name="email" class="form-control" id="emails" autocomplete="off">
+                    <span id="emailids" class="text-danger font-weight"></span>
+                </div>
+                <div class="form-group">
+                    <label>DOB </label>
+                    <input type="date" name="date" class="form-control" id="emails" autocomplete="off">
+                    <span id="date" class="text-danger font-weight"></span>
+                </div>
+                <div>
+                    <input type="radio" name="gender" id="male">male <input type="radio" name="gender" id="female">
+                    <label>female</label><br>
+                    <span id="date" class="text-danger font-weight"></span>
+                </div>
+                <div class="form-group">
+                    <label>Address </label>
+                    <input type="text" name="text" class="form-control" id="emails" autocomplete="off" placeholder="enter Address">
+                    <span id="date" class="text-danger font-weight"></span>
+                </div>
+                <center><input type="submit" name="submit" value="submit" class="btn btn-success"></center>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function validation(){
+            var user =document.getElementById('user').value;
+            var pass =document.getElementById('pass').value;
+            var confirmpass =document.getElementById('conpass').value;
+            var mobileNumber =document.getElementById('mobileNumber').value;
+            var emails =document.getElementById('emails').value;
+
+
+             if(user==""){
+                 document.getElementById('username').innerHTML="please fill the username field";
+                 return false;
+             }
+             if(user.length<6){
+                 document.getElementById('username').innerHTML="username must be of atleast 6 characters";
+                 return false;
+             }
+             if(!isNaN(user)){
+                 document.getElementById('username').innerHTML="Only Characters are allowed";
+                 return false;
+             }
+             if(pass==""){
+                 document.getElementById('passwords').innerHTML="please fill the password field";
+                 return false;
+             }
+             if(pass.length<8){
+                 document.getElementById('passwords').innerHTML="password must be of atleast 8 Characters";
+                 return false;
+             }
+             if(confirmpass==""){
+                 document.getElementById('cnfpass').innerHTML="please fill the confirm Password field";
+                 return false;
+             }
+             if(pass!=confirmpass){
+                 document.getElementById('cnfpass').innerHTML="passwords doesn't match ";
+                 return false;
+             }
+             if(mobileNumber==""){
+                 document.getElementById('mobileno').innerHTML="please fill the mobile number field";
+                 return false;
+             }
+             if(isNaN(mobileNumber)){
+                 document.getElementById('mobileno').innerHTML="user must type only digits";
+                 return false;
+             }
+             if(mobileNumber.length!=10){
+                 document.getElementById('mobileno').innerHTML="mobile number must be 10 digit only";
+                 return false;
+             }
+             if(emails==""){
+                 document.getElementById('emailids').innerHTML="please fill the email id field";
+                 return false;
+             }
+             if(emails.indexOf('@')<=0){
+                 document.getElementById('emailids').innerHTML="Email Id doesn't start with @ please enter user@gmail.com";
+                 return false;
+             }
+         }
+    </script>
+</body>
+</html>
